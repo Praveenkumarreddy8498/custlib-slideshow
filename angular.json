@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "slideshow-lib": {
+      "projectType": "library",
+      "root": "projects/slideshow-lib",
+      "sourceRoot": "projects/slideshow-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/slideshow-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/slideshow-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/slideshow-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/slideshow-lib/src/test.ts",
+            "tsConfig": "projects/slideshow-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/slideshow-lib/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "slideshow-lib"
 }
